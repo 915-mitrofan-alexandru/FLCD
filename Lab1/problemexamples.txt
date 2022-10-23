@@ -39,7 +39,7 @@ P3 (calculate gcd)
 int a, b;
 read(a);
 read(b);
-while(a=/=b) {
+while(a!=b) {
     if(a>b) then {
         a=a-b;
     }
@@ -57,7 +57,7 @@ P1err (the sum of n numbers)
 int a, n, sum=0;
 print(“read n);
 read(1n);
-while(n=!=0)
+while(n!=0)
     read(a);
     n=n-1;
     sum=sum+a;

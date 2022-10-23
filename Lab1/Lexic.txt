@@ -23,7 +23,6 @@ Lexic:
 		type
 		then
 		else
-		return
 		float
 		bool
 		for
