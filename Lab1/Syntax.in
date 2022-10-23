@@ -1,0 +1,30 @@
+
+Syntetical rules:
+
+<program> ::= <stmtlist>
+<stmtlist> ::= <stmt> ; newline | <stmtlist> <stmt> ; newline
+<stmt> ::= <declaration> | <simplstmt> | <structstmt>
+<declaration> ::= <type> <id_list>
+<type> ::= float | bool | string | char | int
+<id_list> ::= <identifier> | <id_list>, <identifier>
+<identifier> ::= <id> | <array>
+<array> ::= <id> [ <number> ]
+<cmpdstmt> ::= { <stmtlist> }
+<simplstmt> ::= <assignstmt> | <iostmt> | <returnstmt>
+
+<assignstmt> ::= <identifier> = <expression>
+<expression> ::= <expression> | <term> | <expression> <operator> <expression> | ( <expression> <operator> <expression> )
+<operator> ::= + | - | * | / | % | **
+<term> ::= <identifier> | <const>
+<iostmt> ::= read ( <identifier> )  | print ( <identifier> ) | print ( <const> )
+<returnstmt> ::= return | return <identifier> | return <const>
+
+<structstmt> ::= <cmpdstmt> | <ifstmt> | <whilestmt> | <forstmt>
+<ifstmt> ::= <thenstmt> <elsestmt> | <thenstmt>
+<thenstmt> ::= if ( <condition>) then <cmpdstmt>
+<elsestmt> ::= else <cmpdstmt>
+<whilestmt> ::= while ( <condition> ) <cmpdstmt>
+<forstmt> ::= for ( <assignstmt> ; <condition> ; <assignment> ) <cmpdstmt>
+<condition> ::= <ev> <relation> <ev> | ( <ev> <relation> <ev> )
+<ev> ::= <condition> | <expression> | ! <ev>
+<relation> ::= < | <= | == | != | >= | > | && | ||

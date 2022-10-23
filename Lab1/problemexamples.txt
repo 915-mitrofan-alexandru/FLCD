@@ -1,0 +1,65 @@
+P1 (print the maximum of 3 numbers)
+
+int a, b, c;
+read(a);
+read(b);
+read(c);
+if (a>=b>=c || a>=c>=b) then {
+    print(a);
+}
+else { 
+    if (b>=a>=c || b>=c>=a) then {
+         print(b);
+    }
+    else {
+         if (c>=a>=b || c>=b>=a) then {
+               print(c);
+         }
+    }
+}
+return;
+
+
+P2 (check if a number is prime)
+
+int n, i;
+read(n);
+for(i=2; i<=n/2; i=i+1) {
+    if(n%2==0) then {
+        print(“not prime”);
+        return;
+    }
+}
+print(“prime”);
+return;
+
+
+P3 (calculate gcd)
+
+int a, b;
+read(a);
+read(b);
+while(a=/=b) {
+    if(a>b) then {
+        a=a-b;
+    }
+    else {
+        b=b-a;
+    }
+}
+print(a);
+return;
+
+
+P1err (the sum of n numbers)
+
+#
+int a, n, sum=0;
+print(“read n);
+read(1n);
+while(n=!=0)
+    read(a);
+    n=n-1;
+    sum=sum+a;
+print(sum);
+return;

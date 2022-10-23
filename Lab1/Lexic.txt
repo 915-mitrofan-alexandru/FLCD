@@ -1,0 +1,56 @@
+
+
+Alphabet:
+       a. Upper (A-Z) and lowercase letters (a-z) of the English alphabet
+       b. Underline character '_';
+       c. Decimal digits (0-9);
+
+Lexic:
+      a.Special symbols, representing:
+         - operators:
+                 	arithmetic: +, -,*, **, /, %
+                 	logic: <=, ==, !=, >=, >, <, !
+         - separators:  [ ] { }  : ; space tab newline
+         - reserved words:
+		int
+		read
+		print
+		while
+		if
+		return
+		char
+		string
+		type
+		then
+		else
+		return
+		float
+		bool
+		for
+
+
+      b.identifiers
+
+ 	 -a sequence of letters and digits, such that the first character is a letter; the rule is:
+    		<id> ::= <letter> | <id> <letter> | <id> <digit>
+             	<letter> ::= A | B | ...| Z | a | b | ... | z
+		<digit> ::= <zero_digit> | <non_zero_digit>
+		<non_zero_digit> ::= 1 | 2 | ... | 9
+		<zero_digit> ::= 0 
+
+      c.constants:
+      		<integer> ::= <zero_digit> | <number> | <sign> <number>
+		<number> ::= <non_zero_digit> | <non_zero_digit> <digit_sequence>
+		<digit_sequence> ::= <digit> | <digit_sequence> <digit> 
+		<sign> ::= + | -
+
+      		<charconst> ::= ‘ <char> ‘
+		<char> ::= <letter> | <digit > | <special>
+		<special> ::= ; | . | , | ...
+      		
+		<stringconst> ::= “ <string> “
+                <string> ::= <char> | <string> <char>
+
+		<boolean> ::= True | False
+   		<float> ::= <integer> | <integer> . <digit_sequence>
+		<const> ::= <float> | <int> | <charconst> | <stringconst> | <bool>
