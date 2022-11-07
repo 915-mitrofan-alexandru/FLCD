@@ -9,29 +9,32 @@ if __name__ == '__main__':
     p2 = "C:\\Users\\Alex\\Documents\\GitHub\\FLCD\\Lab2\\p2.txt"
     p3 = "C:\\Users\\Alex\\Documents\\GitHub\\FLCD\\Lab2\\p3.txt"
     p1err = "C:\\Users\\Alex\\Documents\\GitHub\\FLCD\\Lab2\\p1err.txt"
-    tokens = lA.analyze(p3)
+    tokens = lA.analyze(p1)
     symbolTable = ST()
     pif = PIF()
 
     for group in tokens:
         token = group[0]
         if token in lA.all:
-            pif.put(lA.codification[token], (-1, -1))
+            pif.put(token, (-1, -1))
         elif is_identifier(token):
             id = symbolTable.put(token)
-            pif.put(lA.codification['identifier'], id)
+            pif.put('identifier', id)
         elif is_constant(token):
             id = symbolTable.put(token)
-            pif.put(lA.codification['constant'], id)
+            pif.put('constant', id)
         else:
-            raise Exception("Unknown token " + token)
+            raise Exception("Unknown token " + token + " at line " + str(group[1]))
 
-    print('PIF: \n', pif)
-    print('Symbol Table: \n', symbolTable)
+    f = open("PIF.out", "w")
+    f.write(str(pif))
+    f.close()
 
-    print('\n\n Codification table: ')
-    for e in lA.codification:
-        print(e, " - ", lA.codification[e])
+    f = open("ST.out", "w")
+    f.write(str(symbolTable))
+    f.close()
+
+    print("lexically correct")
 
 
 

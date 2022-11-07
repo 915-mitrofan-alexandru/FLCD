@@ -40,7 +40,6 @@ class LexicalAnalyzer:
                           '>>', '<<', '==', '&&', '||', '!', '!=', '&',
                           '|', '^']
         self.all = ['identifier', 'constant'] + self.sep_without_blank + self.operators + self.reserved
-        self.codification = dict([(self.all[i], i) for i in range(len(self.all))])
 
     def is_part_of_operator(self, char):
         for op in self.operators:
@@ -89,20 +88,20 @@ class LexicalAnalyzer:
 
     def detect(self, x):
         sequences = x.split("\n")
-        line_no = 0
         for sequence in sequences:
             if sequence:
-                line_no = line_no + 1
                 for token in self.break_down_sequence(sequence):
                     if token:
-                        yield [token.split("\n")[0], line_no]
+                        yield token.split("\n")[0]
 
     def analyze(self, text):
         f = open(text, "r")
         tokens = []
+        line_no = 1
         for x in f:
             for token in self.detect(x):
                 if token:
-                    tokens.append((token[0].strip(), token[1]))
+                    tokens.append((token.strip(), line_no))
+            line_no += 1
         f.close()
         return tokens

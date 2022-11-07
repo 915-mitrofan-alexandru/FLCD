@@ -1,4 +1,3 @@
-#
 int a, n, sum=0;
 print(“read n);
 read(1n);
