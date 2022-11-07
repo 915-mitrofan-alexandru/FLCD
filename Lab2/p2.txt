@@ -1,0 +1,10 @@
+int n, i;
+read(n);
+for(i=2; i<=n/2; i=i+1) {
+    if(n%2==0) then {
+        print("not prime");
+        return;
+    }
+}
+print("prime");
+return;

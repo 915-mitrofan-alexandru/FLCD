@@ -20,3 +20,12 @@ class HashTab:
         if value not in self.__table[self.hash_f(value)]:
             return None
         return self.hash_f(value), self.__table[self.hash_f(value)].index(value)
+
+    def __str__(self):
+        string = "ST Pos | Symbol\n"
+        index = 0
+        while index < len(self.__table):
+            if self.__table[index] is not None:
+                string += str(index) + " | " + str(self.__table[index]) + "\n"
+            index += 1
+        return string

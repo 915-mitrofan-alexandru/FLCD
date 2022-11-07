@@ -1,0 +1,10 @@
+#
+int a, n, sum=0;
+print(“read n);
+read(1n);
+while(n!=0)
+    read(a);
+    n=n-1;
+    sum=sum+a;
+print(sum);
+return;
