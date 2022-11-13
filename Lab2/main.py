@@ -3,7 +3,7 @@ from Lab2.PIF import PIF
 from ST import ST
 
 if __name__ == '__main__':
-    reserved = "C:\\Users\\Alex\\Documents\\GitHub\\FLCD\\Lab1\\token.in"
+    reserved = "C:\\Users\\Alex\\Documents\\GitHub\\FLCD\\Lab2\\token.in"
     lA = LexicalAnalyzer(reserved)
     p1 = "C:\\Users\\Alex\\Documents\\GitHub\\FLCD\\Lab2\\p1.txt"
     p2 = "C:\\Users\\Alex\\Documents\\GitHub\\FLCD\\Lab2\\p2.txt"
