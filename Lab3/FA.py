@@ -49,12 +49,13 @@ class FA:
         crt_states = [self.__init_state]
         i = 0
         for char in sequence:
+            if char not in self.__alphabet:
+                print("invalid input")
+                return False
             next_states = []
             for crt_state in crt_states:
                 t_list = self.get_transition_for(crt_state, char)
-                print(crt_state, t_list)
                 if len(t_list) == 0:
-                    print("yes")
                     if i != len(sequence):
                         return False
                     if crt_state not in self.__final_states:
