@@ -1,5 +1,7 @@
 import re
 
+from Lab3.FA import FA
+
 
 def get_reserved(reserved_file):
     reserved = []
@@ -13,6 +15,18 @@ def get_reserved(reserved_file):
 
 def is_identifier(token):
     return re.match(r'^[a-zA-Z]([a-zA-Z]|[0-9]|_){0,10}$', token) is not None
+
+
+def is_integer(token):
+    fa = FA()
+    fa.read_file("C:\\Users\\Alex\\Documents\\GitHub\\FLCD\\Lab2\\integer_constant.in")
+    return fa.check_dfa(token)
+
+
+def is_identifier_fa(token):
+    fa = FA()
+    fa.read_file("C:\\Users\\Alex\\Documents\\GitHub\\FLCD\\Lab2\\identifier.in")
+    return fa.check_dfa(token)
 
 
 def is_constant(token):

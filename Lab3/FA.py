@@ -44,8 +44,7 @@ class FA:
                 t_list.append(transition[2])
         return t_list
 
-    def check_dfa(self):
-        sequence = input("Input the sequence: ")
+    def check_dfa(self, sequence):
         crt_states = [self.__init_state]
         i = 0
         for char in sequence:
@@ -56,16 +55,20 @@ class FA:
             for crt_state in crt_states:
                 t_list = self.get_transition_for(crt_state, char)
                 if len(t_list) == 0:
-                    if i != len(sequence):
+                    if i != len(sequence)-1:
                         return False
                     if crt_state not in self.__final_states:
                         return False
+                elif i == len(sequence) - 1:
+                    for t in t_list:
+                        if t not in self.__final_states:
+                            return False
                 else:
                     for t in t_list:
                         if t not in next_states:
                             next_states.append(t)
             crt_states = next_states
-            print(crt_states)
+            print(crt_states, char)
             i = i+1
         return True
 
@@ -87,7 +90,8 @@ class FA:
                 for transition in self.__transitions:
                     print(transition[0]+", "+transition[1]+" -> "+transition[2])
             elif opt == 6:
-                k = self.check_dfa()
+                sequence = input("Input the sequence: ")
+                k = self.check_dfa(sequence)
                 print(k)
                 if k:
                     print("it is accepted")
