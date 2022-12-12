@@ -1,4 +1,4 @@
-from Lab2.LexicalAnalyzer import LexicalAnalyzer, is_identifier, is_constant
+from Lab2.LexicalAnalyzer import LexicalAnalyzer, is_identifier, is_constant, is_identifier_fa
 from Lab2.PIF import PIF
 from ST import ST
 
@@ -17,7 +17,7 @@ if __name__ == '__main__':
         token = group[0]
         if token in lA.all:
             pif.put(token, (-1, -1))
-        elif is_identifier(token):
+        elif is_identifier_fa(token):
             id = symbolTable.put(token)
             pif.put('identifier', id)
         elif is_constant(token):
