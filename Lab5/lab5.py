@@ -20,6 +20,7 @@ class Grammar:
         return self.is_CFG
 
     def get_productions_for_a_given_non_terminal(self, non_terminal):
+        print(self.productions[tuple([non_terminal])])
         return self.productions[tuple([non_terminal])]
 
     def read_from_file(self, file):
