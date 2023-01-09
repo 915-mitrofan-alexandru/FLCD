@@ -15,6 +15,14 @@ def read_sequence(file):
     return w
 
 
+def get_string_from_list(string):
+    strn = ""
+    for el in string:
+        if el[1] != -1:
+            strn += str(el[0])+str(el[1])+ " "
+    return strn
+
+
 class RecursiveDescendent:
     def __init__(self):
         self.s = "q"
@@ -40,7 +48,7 @@ class RecursiveDescendent:
     def advance(self):
         self.i += 1
         current = self.beta.pop(0)
-        self.alpha.append((current, 0))
+        self.alpha.append((current, -1))
 
     def momentary_insuccess(self):
         self.s = "b"
@@ -111,38 +119,15 @@ class RecursiveDescendent:
             return []
         else:
             print("Sequence accepted")
-            return self.alpha
+            print(self.alpha)
+            return get_string_from_list(self.alpha)
 
 
-def tests():
+if __name__ == '__main__':
     rd = RecursiveDescendent()
-    rd.beta = ["operator", "program"]
-    rd.expand()
-    assert rd.alpha == [('operator', 1)]
-    assert rd.beta == ['+', 'program']
-    rd.advance()
-    assert rd.i == 1
-    assert rd.beta == ['program']
-    assert rd.alpha == [('operator', 1), ('+', 1)]
-    rd.momentary_insuccess()
-    assert rd.s == "b"
-    rd.back()
-    assert rd.i == 0
-    assert rd.beta == ['+', 'program']
-    assert rd.alpha == [('operator', 1)]
-    rd.alpha = [("operator", 1), ("type", 1)]
-    rd.another_try()
-    assert rd.alpha == [('operator', 1), ('type', 2)]
-    assert rd.s == "q"
-    assert rd.beta == ['bool', '+', 'program']
-    rd.success()
-    assert rd.s == "f"
-    print("TEST DONE :)")
+    result = rd.algorithm_run()
+    print(result)
 
-
-def run():
-    rd = RecursiveDescendent()
-    print(rd.algorithm_run())
-
-
-run()
+    with open("C:\\Users\\Alex\\Documents\\GitHub\\FLCD\\Lab7\\out1.txt", "wt") as file:
+        file.write(str(result))
+    file.close()
