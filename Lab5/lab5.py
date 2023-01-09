@@ -13,6 +13,12 @@ class Grammar:
     def get_terminals(self):
         return self.terminals
 
+    def is_non_terminal(self, el):
+        return True if el in self.non_terminals else False
+
+    def is_terminal(self, el):
+        return True if el in self.terminals else False
+
     def get_productions(self):
         return self.productions
 
