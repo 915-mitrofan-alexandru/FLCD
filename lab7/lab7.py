@@ -118,7 +118,7 @@ class RecursiveDescendent:
             print("Error parsing, sequence not accepted")
             return []
         else:
-            print("Sequence accepted")
+            print("Sequence accepted!")
             print(self.alpha)
             return get_string_from_list(self.alpha)
 
